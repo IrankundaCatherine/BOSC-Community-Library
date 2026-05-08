@@ -13,8 +13,7 @@ class LibraryManager:
             return []
 
     def search_resources(self, query):
-        # BUG: This currently only checks the name, and is case-sensitive
-        return [r for r in self.resources if query in r['name']]
+        return [r for r in self.resources if query.lower() in r['name'].lower()]
 
     def add_resource(self, name, link, category):
         new_resource = {
