@@ -12,8 +12,16 @@ class LibraryManager:
         except FileNotFoundError:
             return []
 
-    def search_resources(self, query):
-        return [r for r in self.resources if query.lower() in r['name'].lower()]
+    def search_resources(self, query, category=None):
+        """Search resources by name with optional category filtering."""
+        results = [r for r in self.resources if query.lower() in r['name'].lower()]
+        if category:
+            results = [r for r in results if r.get('category') == category]
+        return results
+
+    def get_categories(self):
+        """Return a list of all unique categories."""
+        return list(set(r.get('category') for r in self.resources if r.get('category')))
 
     def get_string(self, key, lang='en'):
         """Return a localized UI string for the given key and language."""
