@@ -1,17 +1,5 @@
 [
-    {
-        "name": "Open Source Initiative",
-        "link": "https://opensource.org",
-        "category": "Organizations"
-    },
-    {
-        "name": "Free Software Foundation",
-        "link": "https://fsf.org",
-        "category": "Organizations"
-    },
-    {
-        "name": "Broken Resource Example",
-        "link": "https://thislinkisbroken.invalid",
-        "category": "Testing"
-    }
+    {"name": "Open Source Initiative", "link": "https://opensource.org", "category": "Organizations"},
+    {"name": "Free Software Foundation", "link": "https://fsf.org", "category": "Organizations"},
+    {"name": "BOSC Community Library", "link": "https://github.com/IrankundaCatherine/BOSC-Community-Library", "category": "Project"}
 ]
