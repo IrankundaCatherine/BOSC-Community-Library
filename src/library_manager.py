@@ -1,8 +1,26 @@
 import json
+import os
+
+DEFAULT_CONFIG = {
+    "data_path": "data/resources.json",
+    "default_language": "en"
+}
+
+def load_config(config_path="config.json"):
+    """Load configuration from file, falling back to defaults."""
+    if os.path.exists(config_path):
+        with open(config_path, 'r') as f:
+            user_config = json.load(f)
+        return {**DEFAULT_CONFIG, **user_config}
+    return DEFAULT_CONFIG
 
 class LibraryManager:
-    def __init__(self, data_path):
-        self.data_path = data_path
+    def __init__(self, config=None):
+        if config is None:
+            config = load_config()
+        self.config = config
+        self.data_path = config["data_path"]
+        self.default_lang = config.get("default_language", "en")
         self.resources = self.load_resources()
 
     def load_resources(self):
@@ -23,8 +41,10 @@ class LibraryManager:
         """Return a list of all unique categories."""
         return list(set(r.get('category') for r in self.resources if r.get('category')))
 
-    def get_string(self, key, lang='en'):
+    def get_string(self, key, lang=None):
         """Return a localized UI string for the given key and language."""
+        if lang is None:
+            lang = self.default_lang
         strings = {
             'en': {
                 'search': 'Search results for',
@@ -47,3 +67,7 @@ class LibraryManager:
     def save_resources(self):
         with open(self.data_path, 'w') as f:
             json.dump(self.resources, f, indent=4)
+
+if __name__ == "__main__":
+    manager = LibraryManager()
+    print(manager.search_resources('open'))
