@@ -6,6 +6,10 @@ As the Lead Community Maintainer for the BOSC Community Library, my primary focu
 
 A critical aspect of our governance is the commitment to **Radical Transparency**. Every architectural decision, bug fix, and feature enhancement is documented through public issue threads and peer-reviewed pull requests. This "open-by-default" approach builds trust with the public and ensures that the software remains a true public good. Furthermore, our professional repository structure—including a Code of Conduct and detailed Contributing guidelines—lowers the barrier to entry for new contributors, ensuring that the library benefits from a diverse range of perspectives and expertise.
 
+## The Role of Documentation in Scalable Governance
+
+Effective governance is not just about making decisions; it is about making those decisions discoverable. In the BOSC Community Library, we treat documentation as a first-class citizen of the codebase. By requiring every bug fix and feature to be accompanied by an update to the relevant documentation, we prevent the "tribal knowledge" trap that often cripples public-sector IT projects when key personnel leave. Our use of structured Issue and Pull Request templates ensures that the "Why" behind every change is captured, not just the "What." This creates a living history of the project that serves as a massive asset for future maintainers and developers.
+
 ## Handling the "Hostile Fork"
 
 In the world of Open Source, a "hostile fork" occurs when a group of developers or a commercial entity takes the source code and starts a competing project with the intent to replace the original, often diverging in a way that is detrimental to the original community’s goals (e.g., trying to take the project proprietary or fragmenting the user base).
